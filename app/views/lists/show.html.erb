@@ -1,0 +1,14 @@
+<h1><%= @list.name %></h1>
+
+<%= link_to 'add a movie',  new_list_bookmark_path(@list) %>
+
+<section class='container'>
+  <div class="row">
+    <% @list.movies.each do |i| %>
+        <div class='col-3 my-3' style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("<%= i.poster_url %>")'>
+          <h5><%= i.title %></h5>
+          <p><i class="fas fa-popcorn"></i><%= i.rating %></p>
+        </div>
+      <% end %>
+  </div>
+</section>

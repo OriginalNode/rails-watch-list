@@ -1,0 +1,24 @@
+header {
+  width: 100vh;
+  margin: 0 auto;
+  .carousel-item {
+    background-position: center;
+    background-size: cover;
+    height: 50vh;
+    border-radius: 8px;
+  }
+  h1 {
+    text-align: left;
+    margin: 30vh 5vh 0vh;
+    color: white;
+    text-shadow: 0.1em 0.1em 0.1em black;
+  }
+  p {
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    margin-left: 5vh;
+    color: white;
+    text-shadow: 0.1em 0.1em 0.1em black;
+  }
+}

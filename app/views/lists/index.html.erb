@@ -1,0 +1,51 @@
+<header>
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <% @first_card = Movie.find(1) %>
+      <div class="carousel-item active" style='background-image:url("<%= @first_card.poster_url %>")'>
+        <h1><%= @first_card.title %></h1>
+        <p><i class="fas fa-popcorn"></i><%= @first_card.rating %></p>
+      </div>
+      <% List.find(2).movies.each do |i| %>
+        <div class="carousel-item" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("<%= i.poster_url %>")'>
+          <h1><%= i.title %></h1>
+          <p><i class="fas fa-popcorn"></i><%= i.rating %></p>
+        </div>
+      <% end %>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</header>
+
+<section class='container'>
+  <% @favorite = List.find(2) %>
+  <h3><%= link_to @favorite.name, list_path(@favorite) %></h3>
+  <div class="row">
+    <% List.find(2).movies.sample(3).each do |i| %>
+        <div class='col-3' style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("<%= i.poster_url %>")'>
+          <h5><%= i.title %></h5>
+          <p><i class="fas fa-popcorn"></i><%= i.rating %></p>
+        </div>
+      <% end %>
+  </div>
+</section>
+
+<section class='container'>
+  <% @favorite = List.find(3) %>
+  <h3><%= link_to @favorite.name, list_path(@favorite) %></h3>
+  <div class="row">
+    <% List.find(2).movies.sample(3).each do |i| %>
+        <div class='col-3' style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("<%= i.poster_url %>")'>
+          <h5><%= i.title %></h5>
+          <p><i class="fas fa-popcorn"></i><%= i.rating %></p>
+        </div>
+      <% end %>
+  </div>
+</section>

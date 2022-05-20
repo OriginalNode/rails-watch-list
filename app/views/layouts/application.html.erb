@@ -5,12 +5,49 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <%= link_to 'Moviepedia', lists_path, class:"navbar-brand" %>
+        <div>
+          <%= link_to 'Top movies', list_path(1), style: 'margin-right: 3em'%>
+          <%= link_to 'New list', new_list_path %>
+        </div>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" list='liste-de-liste'>
+          <datalist id="liste-de-liste">
+            <% List.all.each do |i| %>
+              <option value=<%= i.name %>>
+            <% end %>
+          </datalist>
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    <main class='container'>
+      <%= yield %>
+    </main>
   </body>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script>
+      const searchValue = document.querySelector('.form-control.me-2')
+      const searchBtn = document.querySelector('.btn.btn-outline-success')
+      let searchItem = searchValue.value
+
+      if(searchValue){
+        searchValue.addEventListener('keyup', (event)=> {
+      searchItem = event.key === 'Backspace' ? searchItem.slice(0, -1) : searchItem + event.key;
+      console.log(searchItem)
+        })
+      }
+
+      if(searchBtn){
+        searchBtn.addEventListener('click', () => {
+          console.log('test');
+          window.location.href = 'http://localhost:3000/show';
+        })
+      }
+    </script>
 </html>

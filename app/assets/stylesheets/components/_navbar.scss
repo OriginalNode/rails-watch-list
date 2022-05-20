@@ -1,0 +1,33 @@
+.navbar-lewagon {
+  justify-content: space-between;
+  background: white;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+
+nav {
+  padding-top: 3em;
+  div {
+    margin: 0 auto;
+  }
+  a {
+    color: white;
+  }
+}
+
+.btn-outline-success {
+  color: grey;
+  border-color: grey;
+  border-radius: 4px;
+}
+
+.form-control.me-2 {
+  background-color: rgba($color: grey, $alpha: 0.1);
+  border: grey;
+}
